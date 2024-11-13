@@ -9,3 +9,10 @@ return list1==list2
 hashset=set()
 list3=list(hashset)
 list3.sort()去重排序
+3、通过 defaultdict(list)来表达有向图，其中list表示一个键指向一个为list的值
+node=defaultdict(list)
+indeg=[0]*numCourses
+result=0
+for info in prerequisites:
+    node[info[1]].append(info[0])
+    indeg[info[0]]+=1

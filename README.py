@@ -20,3 +20,4 @@ print(hashmap.get(str2,0))
 6、输出一个列表的元素并以空格分隔
 for a in list2:
     print(a,end=" ")
+7

@@ -27,5 +27,9 @@ print(line)
 a = line.split()
 a[0]=int(a[0])
 a[1]=int(a[1])
-
+对字典以键排序，并输出键值对
+sortmap = sorted(result.items())
+#print(sortmap)
+for a in sortmap:
+    print(a[0],a[1])
 

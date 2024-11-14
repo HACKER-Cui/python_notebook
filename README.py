@@ -32,4 +32,5 @@ sortmap = sorted(result.items())
 #print(sortmap)
 for a in sortmap:
     print(a[0],a[1])
-
+14、
+sorted dic，list在sorted之后都会变为list

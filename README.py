@@ -34,3 +34,8 @@ for a in sortmap:
     print(a[0],a[1])
 14、
 sorted dic，list在sorted之后都会变为list
+21、
+python中单个字符串的值是无法改变的，先将其转为list，处理完后用join输出
+str1=input()
+str1=list(str1)
+print(''.join(str1))

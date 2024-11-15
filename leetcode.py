@@ -16,3 +16,17 @@ result=0
 for info in prerequisites:
     node[info[1]].append(info[0])
     indeg[info[0]]+=1
+4、通过对字符串转为list排序再输入defaultdict(list)进行49. 字母异位词分组
+输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
+def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        list1=[]
+        if(len(strs)==1):
+            list1.append(strs)
+            return list1
+        dict1=defaultdict(list)
+        for i in strs:
+            dict1[''.join(sorted(list(i)))].append(i)
+        for i,j in dict1.items():
+            list1.append(j)
+        return list1

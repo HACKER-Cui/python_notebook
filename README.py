@@ -42,3 +42,9 @@ print(''.join(str1))
 51、
 输入为1 2 3 4 
 先用spilt()取除空格再存入List中这样就是连续的，不会中间有空字符
+58、序列取n,k
+n,k = list(map(int,input().split()))
+num = list(map(int,input().split()))
+num = sorted(num)
+for i in num[:k]:
+    print(i,end=' ')

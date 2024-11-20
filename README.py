@@ -48,5 +48,5 @@ num = list(map(int,input().split()))
 num = sorted(num)
 for i in num[:k]:
     print(i,end=' ')
-61放苹果动态规划
+61放苹果动态规划（第一次看题解做的）
 确定边界条件，单层递归相加符合所有条件

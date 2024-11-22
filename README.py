@@ -50,3 +50,7 @@ for i in num[:k]:
     print(i,end=' ')
 61放苹果动态规划（第一次看题解做的）
 确定边界条件，单层递归相加符合所有条件
+76、使用join合并列表为字符串时，首先看看列表是否为str
+    for i in range(num):
+        list1.append(str(left+2*i))
+    print("+".join(list1))

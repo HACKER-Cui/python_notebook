@@ -41,7 +41,7 @@ str1=list(str1)
 print(''.join(str1))
 51、
 输入为1 2 3 4 
-先用spilt()取除空格再存入List中这样就是连续的，不会中间有空字符
+先用split()取除空格再存入List中这样就是连续的，不会中间有空字符   【split()的用法：把一个str转为不含空格和/n的list】
 58、序列取n,k
 n,k = list(map(int,input().split()))
 num = list(map(int,input().split()))

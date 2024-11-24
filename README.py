@@ -54,3 +54,8 @@ for i in num[:k]:
     for i in range(num):
         list1.append(str(left+2*i))
     print("+".join(list1))
+97、字符序列，转换为无空格的int类型的列表   1 2 3 4 5->[1,2,3,4,5]
+input().split()去除空格，转为['1','2','3','4','5']
+python中的表没有表而是字典defaultdict，而map()函数接受两个参数，第一个参数是一个函数，第二个参数是一个可迭代对象（比如列表）,map() 函数会对可迭代对象中的每个元素应用第一个参数指定的函数。在这个例子中，int 是一个将字符串转换为整数的函数。所以，map(int, input().split()) 会对 input().split() 返回的字符串列表中的每个元素应用 int() 函数，即将每个字符串转换为整数。
+返回的是一个map对象，这个对象是一个迭代器，包含了转换后的整数。这个迭代器可以被转换为列表，或者直接在循环中迭代使用。
+num_list=list(map(int,input().split())

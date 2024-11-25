@@ -60,3 +60,24 @@ python中的表没有表而是字典defaultdict，而map()函数接受两个参�
 返回的是一个map对象，这个对象是一个迭代器，包含了转换后的整数。这个迭代器可以被转换为列表，或者直接在循环中迭代使用。
 num_list=list(map(int,input().split())
 round(num,1)保留一位小数
+102、输入一个只包含小写英文字母和数字的字符串，按照不同字符统计个数由多到少输出统计结果，如果统计的个数相同，则按照ASCII码由小到大排序输出。
+sorted()：这是一个内置函数，它接受一个可迭代对象作为输入，并返回一个新的、已排序的列表，<原始的可迭代对象不会被改变。>
+list.sort()：这是一个列表对象的方法，它直接在原列表上进行排序，不返回任何值（即返回 None），<它会改变原始列表>。
+sorted():
+iterable: 必需的参数，需要排序的可迭代对象。
+key: 可选参数，一个函数，用于从每个列表元素中提取一个用于比较的值。如果没有提供，那么元素本身将被用于比较，相当于每个元素的的优先级
+reverse: 可选参数，布尔值。如果设置为 True，则列表元素将被逆序排列，默认为 False。
+# 使用 key 参数，例如根据字符串的长度排序
+my_strings = ['apple', 'fig', 'banana', 'cherry']
+print(sorted(my_strings, key=len))  # 根据字符串长度排序
+# 使用 reverse 参数进行降序排序
+print(sorted(my_list, reverse=True))  # 降序排序
+lamda表达式: x迭代参数：参数返回值
+while True:
+    try:
+        s = input()
+        ss = sorted(list(set(s)), key=lambda x:s.count(x)*1000-ord(x), reverse=True)
+        print("".join(ss))
+    except:
+        break
+

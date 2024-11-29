@@ -101,3 +101,5 @@ while True:
         break
 45、字典根据值进行排序
 dic2=sorted(dic.items(),key=lambda x:x[1],reverse=True)
+77、查找字符串中是否有某个字符
+if '7' in str(i)

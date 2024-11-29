@@ -99,3 +99,5 @@ while True:
         print(check(input(),-1))
     except:
         break
+45、字典根据值进行排序
+dic2=sorted(dic.items(),key=lambda x:x[1],reverse=True)

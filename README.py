@@ -103,3 +103,25 @@ while True:
 dic2=sorted(dic.items(),key=lambda x:x[1],reverse=True)
 77、查找字符串中是否有某个字符
 if '7' in str(i)
+43、迷宫
+dfs不要忘了标记已经走过了的路径
+def dfs(list1,x,y,row,col,visited,path):
+    if(x==row-1 and y==col-1):
+        path.append((row-1,col-1))
+        for i in path:
+            print(f"({i[0]},{i[1]})")
+        return
+    if list1[x][y] == "1" or visited[x][y]:
+        return 
+    visited[x][y]=True  
+    path.append((x,y))
+    if x > 0: 
+        dfs(list1, x-1, y, row, col,visited,path)
+    if x < row - 1: 
+        dfs(list1, x+1, y, row, col,visited,path)
+    if y > 0: 
+        dfs(list1, x, y-1, row, col,visited,path)
+    if y < col - 1: 
+        dfs(list1, x, y+1, row, col,visited,path)
+    visited[x][y] = False
+    path.pop()

@@ -30,3 +30,22 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         for i,j in dict1.items():
             list1.append(j)
         return list1
+127、单词接龙BFS 在queue中绑定步数和单词
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0
+        wordSet = set(wordList)
+        queue = deque([(beginWord, 1)])
+        while queue:
+            currentWord,steps=queue.popleft()
+            for i in range(len(currentWord)):
+                for c in 'abcdefghijklmnopqrstuvwxyz':
+                    nextWord=currentWord[:i]+c+currentWord[i+1:]
+                    if nextWord == endWord:
+                        return steps + 1
+                    if nextWord in wordSet:
+                        wordSet.remove(nextWord)
+                        queue.append((nextWord, steps + 1))
+        return 0                        
+

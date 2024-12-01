@@ -48,4 +48,16 @@ class Solution:
                         wordSet.remove(nextWord)
                         queue.append((nextWord, steps + 1))
         return 0                        
+739、通过储存下标实现单调栈，栈在python中就是List
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        n=len(temperatures)
+        list1=[0 for _ in range(n)]
+        st=list()
+        for i in range(n):
+            while len(st)!=0 and temperatures[i]>temperatures[st[-1]]:
+                t=st.pop()
+                list1[t]=i-t
+            st.append(i)
+        return list1
 

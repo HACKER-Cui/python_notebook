@@ -125,3 +125,17 @@ def dfs(list1,x,y,row,col,visited,path):
         dfs(list1, x, y+1, row, col,visited,path)
     visited[x][y] = False
     path.pop()
+107、二分法算精度
+a=float(input())
+err=0.001
+low=min(-1.0,a)
+high=max(1.0,a)
+ans=(low+high)/2
+while abs(ans**3-a)>=err:
+    if ans**3<a:
+        low=ans
+    else:
+        high=ans
+    ans = (low + high)/2.0  
+print(round(ans,1))
+

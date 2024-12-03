@@ -60,4 +60,17 @@ class Solution:
                 list1[t]=i-t
             st.append(i)
         return list1
+437、前缀和累加，遍历新数累加到前缀和li
+def dfs(self, root, targetSum, path_sums):
+        if not root:
+            return        
+        # 更新当前路径的所有累积和
+        new_path_sums = [prev_sum + root.val for prev_sum in path_sums]
+        new_path_sums.append(root.val)  # 加入从当前节点开始的新路径
+        print(new_path_sums)
+        # 统计满足 targetSum 的路径
+        self.count += new_path_sums.count(targetSum)
+        # 递归处理左右子树
+        self.dfs(root.left, targetSum, new_path_sums)
+        self.dfs(root.right, targetSum, new_path_sums)
 

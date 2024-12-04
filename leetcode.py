@@ -73,4 +73,13 @@ def dfs(self, root, targetSum, path_sums):
         # 递归处理左右子树
         self.dfs(root.left, targetSum, new_path_sums)
         self.dfs(root.right, targetSum, new_path_sums)
+24、把一个list转为链表
+dummy_head = ListNode(0)
+current = dummy_head
 
+# 遍历列表，创建链表
+for value in lst:
+    current.next = ListNode(value)
+    current = current.next
+
+return dummy_head.next  

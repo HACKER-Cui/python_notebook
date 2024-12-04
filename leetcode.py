@@ -83,3 +83,28 @@ for value in lst:
     current = current.next
 
 return dummy_head.next  
+146、OrderedDict会按插入顺序记录的字典
+OrderedDict.move_to_end(key, last=True)
+功能: 将指定的键移动到字典的末尾（默认）或开头。
+OrderedDict.popitem(last=True)
+功能: 删除并返回一个键值对。
+from collections import OrderedDict
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cache = OrderedDict()  # 使用有序字典
+        self.capacity = capacity    # 缓存的最大容量
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            # 将键移动到末尾，表示最近使用
+            self.cache.move_to_end(key)
+            return self.cache[key]
+        return -1
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            # 更新值并将键标记为最近使用
+            self.cache.move_to_end(key)
+        self.cache[key] = value
+        if len(self.cache) > self.capacity:
+            # 如果超过容量，删除最久未使用的键（第一个键）
+            self.cache.popitem(last=False)

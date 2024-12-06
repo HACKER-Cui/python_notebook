@@ -108,3 +108,25 @@ class LRUCache:
         if len(self.cache) > self.capacity:
             # 如果超过容量，删除最久未使用的键（第一个键）
             self.cache.popitem(last=False)
+78、
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        path=[]
+        self.result=[]
+        def backtracking(nums,start_index):
+            print(path)
+            self.result.append(path[:])#####
+避免所有子集共享同一个列表对象的问题是指在编程中，如果你直接将同一个列表对象添加到结果列表中，那么所有这些子集实际上都是对同一个列表的引用。这意味着，如果你修改了任何一个子集，其他的子集也会受到影响，因为它们都是指向同一个列表的引用。
+在前面提到的代码中，如果不对path进行复制就直接添加到self.result中，那么所有的子集都会是同一个列表。例如，如果你添加了[1]到path并将其添加到self.result，然后再次添加[1, 2]到path并添加到self.result，那么self.result中的两个子集实际上都是指向同一个列表的引用。如果你随后从path中移除了2，那么self.result中的两个子集都会受到影响，因为它们都是同一个列表。
+为了避免这个问题，你需要在将path添加到self.result之前创建path的一个副本。在Python中，你可以使用path[:]来创建一个path的浅拷贝，这样每个子集都是独立的列表，互不影响。这就是为什么在修正后的代码中，我使用了self.result.append(path[:])来确保每个子集都是独立的。这样，即使path被修改了，self.result中的子集也不会受到影响
+#############################################          
+            print("result=",self.result)
+            if(len(path)==len(nums)):
+                return None
+            for i in range(start_index,len(nums)):
+                path.append(nums[i])
+                backtracking(nums,i+1)
+                path.pop()
+
+        backtracking(nums,0)
+        return self.result

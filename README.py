@@ -138,4 +138,6 @@ while abs(ans**3-a)>=err:
         high=ans
     ans = (low + high)/2.0  
 print(round(ans,1))
-
+26、大的先排
+b=s.upper()转大写
+b=sorted(a,key=str.upper)

@@ -130,3 +130,20 @@ class Solution:
 
         backtracking(nums,0)
         return self.result
+173、二叉搜索树迭代器<通过迭代将二叉搜索树转为单调栈>
+class BSTIterator:
+
+    def __init__(self, root: Optional[TreeNode]):
+        self.stack=[]
+        while root:
+            self.stack.append(root)
+            root=root.left
+    def next(self) -> int:
+        cur=self.stack.pop()
+        node=cur.right
+        while node:
+            self.stack.append(node)
+            node=node.left
+        return cur.val
+    def hasNext(self) -> bool:
+        return len(self.stack)>0

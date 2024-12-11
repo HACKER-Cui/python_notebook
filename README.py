@@ -175,3 +175,22 @@ class Solution:
                 temp.next=temp2
             return dummyHead.next
         return sortf(head,None)
+70、乘法估计 栈特性
+import sys
+n = int(input())
+arr = []
+order = []
+res = 0
+for i in range(n):
+    arr.append(list(map(int, input().split())))    # 处理输入的矩阵行列数据
+f = input()
+for i in f :
+    if i.isalpha():
+        order.append(arr[ord(i)-65])
+        #print(order)
+    elif i==")":
+        b=order.pop()
+        a=order.pop()
+        res+=a[1]*b[1]*a[0]
+        order.append([a[0],b[1]])
+print(res)

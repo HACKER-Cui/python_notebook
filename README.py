@@ -141,3 +141,37 @@ print(round(ans,1))
 26、大的先排
 b=s.upper()转大写
 b=sorted(a,key=str.upper)
+148、排序链表，经典分治算法
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def sortf(head,tail):
+            if not head:
+                return head
+            if head.next== tail:#只有一个head时
+                head.next=None#断开链表
+                return head
+            slow=fast=head
+            while fast!=tail:
+                slow=slow.next
+                fast=fast.next
+                if fast!= tail:
+                    fast=fast.next
+            mid=slow
+            return merge(sortf(head, mid), sortf(mid, tail))
+        def merge(head1, head2):
+            dummyHead=ListNode(0)
+            temp,temp1,temp2=dummyHead,head1,head2
+            while temp1 and temp2:
+                if temp1.val<=temp2.val:
+                    temp.next=temp1
+                    temp1=temp1.next#temp1
+                else:
+                    temp.next=temp2
+                    temp2=temp2.next
+                temp=temp.next
+            if temp1:
+                temp.next=temp1
+            elif temp2:
+                temp.next=temp2
+            return dummyHead.next
+        return sortf(head,None)

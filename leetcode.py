@@ -148,3 +148,17 @@ class BSTIterator:
     def hasNext(self) -> bool:
         return len(self.stack)>0
 918、环形kadele算法
+138、深拷贝随机链表 在{}中使用dic.get()能获得对于键的值
+dic = {}
+# 3. 复制各节点，并建立 “原节点 -> 新节点” 的 Map 映射
+cur = head
+while cur:
+    dic[cur] = Node(cur.val)#{原节点，新节点}
+    cur = cur.next
+cur = head
+#print(dic)
+while cur:
+    dic[cur].next=dic.get(cur.next)
+    dic[cur].random=dic.get(cur.random)
+    cur=cur.next
+return dic[head]

@@ -147,3 +147,4 @@ class BSTIterator:
         return cur.val
     def hasNext(self) -> bool:
         return len(self.stack)>0
+918、环形kadele算法

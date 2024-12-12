@@ -194,3 +194,12 @@ for i in f :
         res+=a[1]*b[1]*a[0]
         order.append([a[0],b[1]])
 print(res)
+53、杨辉三角两种方法初始化一个矩阵
+n = 3  # 行数
+m = 4  # 列数
+matrix = [[0 for _ in range(m)] for _ in range(n)]
+import numpy as np
+
+n = 3  # 行数
+m = 4  # 列数
+matrix = np.zeros((n, m))  # 用0初始化

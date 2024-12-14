@@ -162,3 +162,35 @@ while cur:
     dic[cur].random=dic.get(cur.random)
     cur=cur.next
 return dic[head]
+131.分割回文串 回溯重要
+class Solution:
+    def __init__(self):
+        self.result=[]
+        self.path=[]
+    def partition(self, s: str) -> List[List[str]]:
+        path=[]
+        result=[]
+        def isrev(str1):
+            if str1==str1[::-1]:
+                return  True
+            else:
+                return False
+        startindex=0
+        def backtrace(startindex):
+            #print(self.path)
+            
+            if startindex == len(s):  # If we've considered the entire string
+                self.result.append(self.path[:])  # Append a copy of the current path
+                return         
+            for end in range(startindex+1,len(s)+1):
+                #print("i=",i)
+                substring=s[startindex:end]
+                if isrev(substring):
+                    self.path.append(substring)
+                #print(self.path)
+                    backtrace(end)
+                    print(self.path)
+                    self.path=self.path[:-1]
+        #print(list1)
+        backtrace(0)
+        return self.result

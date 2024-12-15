@@ -194,3 +194,4 @@ class Solution:
         #print(list1)
         backtrace(0)
         return self.result
+394字符串解码 将(num, 字符)数对存入栈中

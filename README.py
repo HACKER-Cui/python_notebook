@@ -203,3 +203,10 @@ import numpy as np
 n = 3  # 行数
 m = 4  # 列数
 matrix = np.zeros((n, m))  # 用0初始化
+50四则运算（eval函数将str转实际数值）
+s = input()
+s = s.replace("{", "(")
+s = s.replace("}", ")")
+s = s.replace("[", "(")
+s = s.replace("]", ")")
+print(int(eval(s)))

@@ -195,3 +195,31 @@ class Solution:
         backtrace(0)
         return self.result
 394字符串解码 将(num, 字符)数对存入栈中
+
+79、单词搜索（回溯）
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        def backtrack(i, j, index):
+            # 如果已经找到整个单词
+            if index == len(word):
+                return True
+            if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] != word[index]:
+                return False
+           
+            temp = board[i][j]
+            board[i][j] = '#'
+            for dx, dy in directions:
+                ni, nj = i + dx, j + dy
+                if backtrack(ni, nj, index + 1):
+                    return True
+            print("revise",(i,j))
+            board[i][j] = temp
+            return False
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                # 如果当前格子字符和单词的首字母匹配
+                if board[i][j] == word[0]:
+                    if backtrack(i, j, 0):  # 从当前位置开始回溯
+                        return True        
+        return False

@@ -223,3 +223,10 @@ class Solution:
                     if backtrack(i, j, 0):  # 从当前位置开始回溯
                         return True        
         return False
+39组合
+本题还需要startIndex来控制for循环的起始位置，对于组合问题，什么时候需要startIndex呢？
+
+我举过例子，如果是一个集合来求组合的话，就需要startIndex，例如：77.组合，216.组合总和III。
+
+如果是多个集合取组合，各个集合之间相互不影响，那么就不用startIndex，例如：17.电话号码的字母组合
+

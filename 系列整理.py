@@ -42,7 +42,7 @@
 
 left, right = 0, len(nums)-1
 while left <= right:
-    mid = left + (right-left)//2  # 防溢出
+    mid = left + (right-left)//2  # 防溢出 mid=(left+right)//2也可以
     if nums[mid] < target:
         left = mid + 1   # 搜索[mid+1, right]
     else:

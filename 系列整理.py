@@ -46,5 +46,5 @@ while left <= right:
     if nums[mid] < target:
         left = mid + 1   # 搜索[mid+1, right]
     else:
-        right = mid -1   # 搜索[left, mid-1]
+        right = mid -1   # 搜索[left, mid-1]#因为最后取得是左，所以如果相等要移动右边界
 return left  # 首个>=target的位置

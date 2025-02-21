@@ -39,7 +39,7 @@
     左闭右开 [left, right) → 终止条件 left == right
 
     万能模板（左闭右闭）：
-
+口角：等
 left, right = 0, len(nums)-1
 while left <= right:
     mid = left + (right-left)//2  # 防溢出 mid=(left+right)//2也可以
